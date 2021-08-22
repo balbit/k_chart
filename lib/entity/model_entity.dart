@@ -1,3 +1,3 @@
 mixin ModelEntity {
-  double? cci;
+  double? prediction;
 }
