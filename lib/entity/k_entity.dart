@@ -16,5 +16,5 @@ class KEntity
         WREntity,
         CCIEntity,
         MACDEntity,
-        ModelEntity,
+        ModelEntity
         {}
