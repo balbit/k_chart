@@ -5,6 +5,7 @@ import 'rsi_entity.dart';
 import 'rw_entity.dart';
 import 'volume_entity.dart';
 import 'cci_entity.dart';
+import 'model_entity.dart';
 
 class KEntity
     with
@@ -14,4 +15,6 @@ class KEntity
         RSIEntity,
         WREntity,
         CCIEntity,
-        MACDEntity {}
+        MACDEntity,
+        ModelEntity,
+        {}
