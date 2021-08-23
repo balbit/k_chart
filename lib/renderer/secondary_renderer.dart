@@ -170,8 +170,8 @@ class SecondaryRenderer extends BaseChartRenderer<MACDEntity> {
       case SecondaryState.Model:
         children = [
           TextSpan(
-              text: "多空評分: ${format((data.prediction??:0)+50)}",
-              style: getTextStyle((data.prediction??:0) > 0 ? 
+              text: "多空評分: ${format((data.prediction??0)+50)}",
+              style: getTextStyle((data.prediction??0) > 0 ? 
                                   this.chartColors.upColor:
                                   this.chartColors.dnColor)),
         ];
