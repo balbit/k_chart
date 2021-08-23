@@ -38,6 +38,9 @@ class SecondaryRenderer extends BaseChartRenderer<MACDEntity> {
       case SecondaryState.MACD:
         drawMACD(curPoint, canvas, curX, lastPoint, lastX);
         break;
+      case SecondaryState.Model:
+        drawModel(curPoint, canvas, curX, lastPoint, lastX);
+        break;
       case SecondaryState.KDJ:
         drawLine(lastPoint.k, curPoint.k, canvas, lastX, curX,
             this.chartColors.kColor);
@@ -83,6 +86,21 @@ class SecondaryRenderer extends BaseChartRenderer<MACDEntity> {
     if (lastPoint.dea != 0) {
       drawLine(lastPoint.dea, curPoint.dea, canvas, lastX, curX,
           this.chartColors.deaColor);
+    }
+  }
+  
+  void drawModel(MACDEntity curPoint, Canvas canvas, double curX,
+      MACDEntity lastPoint, double lastX) {
+    final prediction = (curPoint.prediction ?? 0);
+    double macdY = getY(prediction);
+    double r = mMACDWidth / 2;
+    double zeroy = getY(0);
+    if (macd > 0) {
+      canvas.drawRect(Rect.fromLTRB(curX - r, macdY, curX + r, zeroy),
+          chartPaint..color = this.chartColors.upColor);
+    } else {
+      canvas.drawRect(Rect.fromLTRB(curX - r, zeroy, curX + r, macdY),
+          chartPaint..color = this.chartColors.dnColor);
     }
   }
 
@@ -147,6 +165,15 @@ class SecondaryRenderer extends BaseChartRenderer<MACDEntity> {
           TextSpan(
               text: "CCI(14):${format(data.cci)}    ",
               style: getTextStyle(this.chartColors.rsiColor)),
+        ];
+        break;
+      case SecondaryState.Model:
+        children = [
+          TextSpan(
+              text: "多空評分: ${format(data.prediction+50)}",
+              style: getTextStyle(data.prediction > 50 ? 
+                                  this.chartColors.upColor:
+                                  this.chartColors.dnColor)),
         ];
         break;
       default:
