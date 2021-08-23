@@ -16,8 +16,16 @@ class DataUtil {
     calcRSI(dataList);
     calcWR(dataList);
     calcCCI(dataList);
+    calcModel(dataList);
   }
-
+  
+  static void calcModel(List<KLineEntity> dataList) {
+    for (int i = 0; i < dataList.length; i++) {
+      KLineEntity entity = dataList[i];
+      entity.prediction = entity.modelvalue;
+    }
+  }
+  
   static calcMA(List<KLineEntity> dataList, List<int> maDayList) {
     List<double> ma = List<double>.filled(maDayList.length, 0);
 
