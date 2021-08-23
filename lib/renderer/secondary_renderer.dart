@@ -95,7 +95,7 @@ class SecondaryRenderer extends BaseChartRenderer<MACDEntity> {
     double macdY = getY(prediction);
     double r = mMACDWidth / 2;
     double zeroy = getY(0);
-    if (macd > 0) {
+    if (prediction > 0) {
       canvas.drawRect(Rect.fromLTRB(curX - r, macdY, curX + r, zeroy),
           chartPaint..color = this.chartColors.upColor);
     } else {
@@ -170,8 +170,8 @@ class SecondaryRenderer extends BaseChartRenderer<MACDEntity> {
       case SecondaryState.Model:
         children = [
           TextSpan(
-              text: "多空評分: ${format(data.prediction+50)}",
-              style: getTextStyle(data.prediction > 50 ? 
+              text: "多空評分: ${format((data.prediction??:0)+50)}",
+              style: getTextStyle((data.prediction??:0) > 0 ? 
                                   this.chartColors.upColor:
                                   this.chartColors.dnColor)),
         ];
