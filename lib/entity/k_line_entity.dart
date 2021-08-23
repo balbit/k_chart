@@ -21,6 +21,7 @@ class KLineEntity extends KEntity {
     required this.high,
     required this.low,
     required this.vol,
+    this.prediction,
   });
 
   KLineEntity.fromJson(Map<String, dynamic> json) {
