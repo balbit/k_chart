@@ -261,8 +261,8 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
         path
           ..fillType = PathFillType.evenOdd,
         Paint() 
-        ..color= Colors.black.withAlpha(shadowAlpha)
-        ..maskFilter = MaskFilter.blur(BlurStyle.normal, convertRadiusToSigma(3))
+        ..color= Colors.black.withAlpha(0.5)
+        ..maskFilter = MaskFilter.blur(BlurStyle.normal, 4)
       );
       yCenter = high + labelDist + labelH/2;
       paintedText = "空";
@@ -280,8 +280,8 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
         path
           ..fillType = PathFillType.evenOdd,
         Paint() 
-        ..color= Colors.black.withAlpha(shadowAlpha)
-        ..maskFilter = MaskFilter.blur(BlurStyle.normal, convertRadiusToSigma(3))
+        ..color= Colors.black.withAlpha(0.5)
+        ..maskFilter = MaskFilter.blur(BlurStyle.normal, 4)
       );
       yCenter = low - labelDist - labelH/2;
       paintedText = "多";
