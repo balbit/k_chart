@@ -241,20 +241,32 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
     var close = getY(curPoint.close);
     
     double labelR = mCandleWidth * 1.2;
-    double labelDist = mCandleWidth * 5;
-    double labelH = labelR * 2;
+    double labelDist = 20;
+    double labelH = 40;
     Radius labelRadius = Radius.circular(5.0);
+    
+    String paintedText = "";
+    
+    double yCenter = 0;
     
     if (curPoint.label == LabelType.Short) {
       chartPaint.color = Colors.greenAccent;
       canvas.drawRRect(
           RRect.fromLTRBR(curX - labelR, high + labelDist + labelH, curX + labelR, high + labelDist, labelRadius), chartPaint);
+      yCenter = high + labelDist + labelH/2;
+      paintedText = "空";
     }
     if (curPoint.label == LabelType.Long) {
       chartPaint.color = Colors.redAccent;
       canvas.drawRRect(
           RRect.fromLTRBR(curX - labelR, low - labelDist, curX + labelR, low - labelDist - labelH, labelRadius), chartPaint);
+      yCenter = low - labelDist - labelH/2;
+      paintedText = "多";
     }
+    
+    TextPainter tp = TextPainter(text: TextSpan(text: paintedText, style: TextStyle(color:Colors.black), textDirection: TextDirection.ltr);
+    tp.layout();
+    tp.paint(canvas, Offset(curX, yCenter));
   }
 
   @override
