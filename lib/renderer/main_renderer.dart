@@ -55,6 +55,9 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
       maxValue *= 1.5;
       minValue /= 2;
     }
+    final diff = maxValue - minValue;
+    maxValue += diff * 0.1;
+    minValue -= diff * 0.1;
     scaleY = _contentRect.height / (maxValue - minValue);
   }
 
