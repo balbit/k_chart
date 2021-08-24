@@ -240,7 +240,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
     var open = getY(curPoint.open);
     var close = getY(curPoint.close);
     
-    double labelR = 20;
+    double labelR = 200/mCandleWidth;
     double labelDist = mCandleWidth * 4;
     double labelH = labelR * 1.3;
     
@@ -255,15 +255,17 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
         ..lineTo(curX + labelR, high + labelDist + labelH)
         ..lineTo(curX, high + labelDist);
       canvas.drawPath(
-        path, chartPaint
-      );
-      canvas.drawPath(
         path
           ..fillType = PathFillType.evenOdd,
         Paint() 
         ..color= Colors.black.withAlpha(120)
         ..maskFilter = MaskFilter.blur(BlurStyle.normal, 4)
       );
+      
+      canvas.drawPath(
+        path, chartPaint
+      );
+      
       yCenter = high + labelDist + labelH/2;
       paintedText = "空";
     }
@@ -274,15 +276,16 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
         ..lineTo(curX + labelR, low - labelDist - labelH)
         ..lineTo(curX, low - labelDist);
       canvas.drawPath(
-        path, chartPaint
-      );
-      canvas.drawPath(
         path
           ..fillType = PathFillType.evenOdd,
         Paint() 
         ..color= Colors.black.withAlpha(120)
         ..maskFilter = MaskFilter.blur(BlurStyle.normal, 4)
       );
+      canvas.drawPath(
+        path, chartPaint
+      );
+      
       yCenter = low - labelDist - labelH/2;
       paintedText = "多";
     }
