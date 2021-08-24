@@ -1,4 +1,5 @@
 import '../entity/k_entity.dart';
+import '../k_chart_widget.dart'
 
 class KLineEntity extends KEntity {
   late double open;
