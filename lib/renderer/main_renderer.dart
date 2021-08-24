@@ -240,10 +240,9 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
     var open = getY(curPoint.open);
     var close = getY(curPoint.close);
     
-    double labelR = mCandleWidth * 1.2;
-    double labelDist = 20;
-    double labelH = 40;
-    Radius labelRadius = Radius.circular(5.0);
+    double labelR = mCandleWidth * 2;
+    double labelDist = mCandleWidth * 4;
+    double labelH = labelR * 1.3;
     
     String paintedText = "";
     
@@ -251,22 +250,30 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
     
     if (curPoint.label == LabelType.Short) {
       chartPaint.color = Colors.greenAccent;
-      canvas.drawRRect(
-          RRect.fromLTRBR(curX - labelR, high + labelDist + labelH, curX + labelR, high + labelDist, labelRadius), chartPaint);
+      canvas.drawPath(
+        Path()..moveTo(curX, high + labelDist)
+        ..lineTo(curX - labelR, high + labelDist + labelH)
+        ..lineTo(curX + labelR, high + labelDist + labelH)
+        ..lineTo(0, high + labelDist), chartPaint
+      );
       yCenter = high + labelDist + labelH/2;
       paintedText = "空";
     }
     if (curPoint.label == LabelType.Long) {
       chartPaint.color = Colors.redAccent;
-      canvas.drawRRect(
-          RRect.fromLTRBR(curX - labelR, low - labelDist, curX + labelR, low - labelDist - labelH, labelRadius), chartPaint);
+      canvas.drawPath(
+        Path()..moveTo(curX, low - labelDist)
+        ..lineTo(curX - labelR, low - labelDist - labelH)
+        ..lineTo(curX + labelR, low - labelDist - labelH)
+        ..lineTo(0, low - labelDist), chartPaint
+      );
       yCenter = low - labelDist - labelH/2;
       paintedText = "多";
     }
     
-    TextPainter tp = TextPainter(text: TextSpan(text: paintedText, style: TextStyle(color:Colors.black)), textDirection: TextDirection.ltr);
-    tp.layout();
-    tp.paint(canvas, Offset(curX, yCenter));
+//     TextPainter tp = TextPainter(text: TextSpan(text: paintedText, style: TextStyle(color:Colors.black)), textDirection: TextDirection.ltr);
+//     tp.layout();
+//     tp.paint(canvas, Offset(curX, yCenter));
   }
 
   @override
