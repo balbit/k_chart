@@ -254,7 +254,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
         Path()..moveTo(curX, high + labelDist)
         ..lineTo(curX - labelR, high + labelDist + labelH)
         ..lineTo(curX + labelR, high + labelDist + labelH)
-        ..lineTo(0, high + labelDist), chartPaint
+        ..lineTo(curX, high + labelDist), chartPaint
       );
       yCenter = high + labelDist + labelH/2;
       paintedText = "空";
@@ -265,7 +265,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
         Path()..moveTo(curX, low - labelDist)
         ..lineTo(curX - labelR, low - labelDist - labelH)
         ..lineTo(curX + labelR, low - labelDist - labelH)
-        ..lineTo(0, low - labelDist), chartPaint
+        ..lineTo(curX, low - labelDist), chartPaint
       );
       yCenter = low - labelDist - labelH/2;
       paintedText = "多";
