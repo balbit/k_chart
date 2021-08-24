@@ -173,6 +173,9 @@ abstract class BaseChartPainter extends CustomPainter {
       getVolMaxMinValue(item);
       getSecondaryMaxMinValue(item);
     }
+    final diff = mMainHighMaxValue - mMainLowMinValue + 1;
+    mMainHighMaxValue += diff * 0.1;
+    mMainLowMinValue -= diff * 0.1;
   }
 
   void getMainMaxMinValue(KLineEntity item, int i) {
@@ -203,9 +206,7 @@ abstract class BaseChartPainter extends CustomPainter {
         mMainMinIndex = i;
       }
     }
-    final diff = mMainMaxValue - mMainLowValue + 1;
-    mMainMaxValue += diff * 0.1;
-    mMainMinValue -= diff * 0.1;
+    
   }
 
   double _findMaxMA(List<double> a) {
