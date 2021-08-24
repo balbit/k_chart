@@ -240,7 +240,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
     var open = getY(curPoint.open);
     var close = getY(curPoint.close);
     
-    double labelR = 200/mCandleWidth;
+    double labelR = 20;
     double labelDist = mCandleWidth * 4;
     double labelH = labelR * 1.3;
     
