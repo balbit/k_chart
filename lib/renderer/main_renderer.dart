@@ -112,6 +112,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
     if (isLine != true) {
       drawCandle(curPoint, canvas, curX);
     }
+    drawLabel(curPoint, canvas, curX);
     if (isLine == true) {
       drawPolyline(lastPoint.close, curPoint.close, canvas, lastX, curX);
     } else if (state == MainState.MA) {
