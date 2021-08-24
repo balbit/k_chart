@@ -22,7 +22,7 @@ class DataUtil {
   static void calcModel(List<KLineEntity> dataList) {
     for (int i = 0; i < dataList.length; i++) {
       KLineEntity entity = dataList[i];
-      entity.prediction = entity.modelvalue==null?0:entity.modelvalue-50;
+      entity.prediction = entity.modelvalue==null?0:entity.modelvalue!-50;
     }
   }
   
