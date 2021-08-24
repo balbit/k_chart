@@ -264,7 +264,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
       paintedText = "多";
     }
     
-    TextPainter tp = TextPainter(text: TextSpan(text: paintedText, style: TextStyle(color:Colors.black), textDirection: TextDirection.ltr)));
+    TextPainter tp = TextPainter(text: TextSpan(text: paintedText, style: TextStyle(color:Colors.black), textDirection: TextDirection.ltr));
     tp.layout();
     tp.paint(canvas, Offset(curX, yCenter));
   }
