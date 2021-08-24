@@ -173,9 +173,9 @@ abstract class BaseChartPainter extends CustomPainter {
       getVolMaxMinValue(item);
       getSecondaryMaxMinValue(item);
     }
-    final diff = mMainHighMaxValue - mMainLowMinValue + 1;
-    mMainHighMaxValue += diff * 0.1;
-    mMainLowMinValue -= diff * 0.1;
+//     final diff = mMainHighMaxValue - mMainLowMinValue + 1;
+//     mMainHighMaxValue += diff * 0.1;
+//     mMainLowMinValue -= diff * 0.1;
   }
 
   void getMainMaxMinValue(KLineEntity item, int i) {
