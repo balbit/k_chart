@@ -241,12 +241,12 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
     int labelH = 40;
     Radius labelRadius = Radius.circular(5.0);
     
-    if (curPoint.label = LabelType.short) {
+    if (curPoint.label = LabelType.Short) {
       chartPaint.color = Colors.greenAccent;
       canvas.drawRRect(
           RRect.fromLTRBR(curX - labelR, high + labelDist + labelH, curX + labelR, high + labelDist, labelRadius), chartPaint);
     }
-    if (curPoint.label = LabelType.long) {
+    if (curPoint.label = LabelType.Long) {
       chartPaint.color = Colors.redAccent;
       canvas.drawRRect(
           RRect.fromLTRBR(curX - labelR, low - labelDist, curX + labelR, low - labelDist - labelH, labelRadius), chartPaint);
