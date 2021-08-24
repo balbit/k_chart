@@ -227,6 +227,31 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
           Rect.fromLTRB(curX - lineR, high, curX + lineR, low), chartPaint);
     }
   }
+  
+  void drawLabel(CandleEntity curPoint, Canvas canvas, double curX) {
+    if (curPoint.label == null) return;
+    
+    var high = getY(curPoint.high);
+    var low = getY(curPoint.low);
+    var open = getY(curPoint.open);
+    var close = getY(curPoint.close);
+    
+    int labelR = 20;
+    int labelDist = 10;
+    int labelH = 40;
+    int labelRadius = 5;
+    
+    if (curPoint.label = LabelType.short) {
+      chartPaint.color = Colors.greenAccent;
+      canvas.drawRRect(
+          RRect.fromLTRBR(curX - labelR, high + labelDist + labelH, curX + labelR, high + labelDist, labelRadius), chartPaint);
+    }
+    if (curPoint.label = LabelType.long) {
+      chartPaint.color = Colors.redAccent;
+      canvas.drawRRect(
+          RRect.fromLTRBR(curX - labelR, low - labelDist, curX + labelR, low - labelDist - labelH, labelRadius), chartPaint);
+    }
+  }
 
   @override
   void drawRightText(canvas, textStyle, int gridRows) {
