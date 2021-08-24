@@ -240,7 +240,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
     var open = getY(curPoint.open);
     var close = getY(curPoint.close);
     
-    double labelR = mCandleWidth * 2;
+    double labelR = 20;
     double labelDist = mCandleWidth * 4;
     double labelH = labelR * 1.3;
     
@@ -248,8 +248,8 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
     
     double yCenter = 0;
     
-    if (curPoint.label == LabelType.Short) {
-      chartPaint.color = Colors.greenAccent;
+    if (curPoint.label == LabelType.Long) {
+      chartPaint.color = Colors.redAccent;
       canvas.drawPath(
         Path()..moveTo(curX, high + labelDist)
         ..lineTo(curX - labelR, high + labelDist + labelH)
@@ -259,8 +259,8 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
       yCenter = high + labelDist + labelH/2;
       paintedText = "空";
     }
-    if (curPoint.label == LabelType.Long) {
-      chartPaint.color = Colors.redAccent;
+    if (curPoint.label == LabelType.Short) {
+      chartPaint.color = Colors.greenAccent;
       canvas.drawPath(
         Path()..moveTo(curX, low - labelDist)
         ..lineTo(curX - labelR, low - labelDist - labelH)
