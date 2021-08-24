@@ -12,7 +12,7 @@ class KLineEntity extends KEntity {
   double? ratio;
   int? time;
   double? modelvalue;
-  LabelType? label = null;
+  LabelType? label;
 
   KLineEntity.fromCustom({
     required this.amount,
