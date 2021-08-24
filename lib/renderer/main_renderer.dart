@@ -239,7 +239,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
     int labelR = 20;
     int labelDist = 10;
     int labelH = 40;
-    int labelRadius = 5;
+    Radius labelRadius = Radius.circular(5.0);
     
     if (curPoint.label = LabelType.short) {
       chartPaint.color = Colors.greenAccent;
