@@ -250,22 +250,38 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
     
     if (curPoint.label == LabelType.Long) {
       chartPaint.color = Colors.redAccent;
-      canvas.drawPath(
-        Path()..moveTo(curX, high + labelDist)
+      late path = Path()..moveTo(curX, high + labelDist)
         ..lineTo(curX - labelR, high + labelDist + labelH)
         ..lineTo(curX + labelR, high + labelDist + labelH)
-        ..lineTo(curX, high + labelDist), chartPaint
+        ..lineTo(curX, high + labelDist);
+      canvas.drawPath(
+        path, chartPaint
+      );
+      canvas.drawPath(
+        path
+          ..fillType = PathFillType.evenOdd,
+        Paint() 
+        ..color= Colors.black.withAlpha(shadowAlpha)
+        ..maskFilter = MaskFilter.blur(BlurStyle.normal, convertRadiusToSigma(3))
       );
       yCenter = high + labelDist + labelH/2;
       paintedText = "空";
     }
     if (curPoint.label == LabelType.Short) {
       chartPaint.color = Colors.greenAccent;
-      canvas.drawPath(
-        Path()..moveTo(curX, low - labelDist)
+      late path = Path()..moveTo(curX, low - labelDist)
         ..lineTo(curX - labelR, low - labelDist - labelH)
         ..lineTo(curX + labelR, low - labelDist - labelH)
-        ..lineTo(curX, low - labelDist), chartPaint
+        ..lineTo(curX, low - labelDist);
+      canvas.drawPath(
+        path, chartPaint
+      );
+      canvas.drawPath(
+        path
+          ..fillType = PathFillType.evenOdd,
+        Paint() 
+        ..color= Colors.black.withAlpha(shadowAlpha)
+        ..maskFilter = MaskFilter.blur(BlurStyle.normal, convertRadiusToSigma(3))
       );
       yCenter = low - labelDist - labelH/2;
       paintedText = "多";
