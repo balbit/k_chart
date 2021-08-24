@@ -7,8 +7,8 @@ class ChartColors {
   Color ma5Color = Color(0xffC9B885);
   Color ma10Color = Color(0xff6CB0A6);
   Color ma30Color = Color(0xff9979C6);
-  Color upColor = Color(0xff4DAA90);
-  Color dnColor = Color(0xffC15466);
+  Color upColor = Color(0xffC15466);
+  Color dnColor = Color(0xff4DAA90);
   Color volColor = Color(0xff4729AE);
 
   Color macdColor = Color(0xff4729AE);
@@ -22,13 +22,13 @@ class ChartColors {
 
   Color defaultTextColor = Color(0xff60738E);
 
-  Color nowPriceUpColor = Color(0xff4DAA90);
-  Color nowPriceDnColor = Color(0xffC15466);
+  Color nowPriceUpColor = Color(0xffC15466);
+  Color nowPriceDnColor = Color(0xff4DAA90);
   Color nowPriceTextColor = Color(0xffffffff);
 
   //深度颜色
-  Color depthBuyColor = Color(0xff60A893);
-  Color depthSellColor = Color(0xffC15866);
+  Color depthBuyColor = Color(0xffC15866);
+  Color depthSellColor = Color(0xff60A893);
   //选中后显示值边框颜色
   Color selectBorderColor = Color(0xff6C7A86);
 
