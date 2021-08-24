@@ -286,7 +286,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
         path, chartPaint
       );
       
-      yCenter = low - labelDist - labelH/2-10;
+      yCenter = low - labelDist - labelH/2-14;
       paintedText = "空";
     }
     
