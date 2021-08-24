@@ -11,6 +11,7 @@ class KLineEntity extends KEntity {
   double? ratio;
   int? time;
   double? modelvalue;
+  LabelType? label = null;
 
   KLineEntity.fromCustom({
     required this.amount,
@@ -23,6 +24,7 @@ class KLineEntity extends KEntity {
     required this.low,
     required this.vol,
     this.modelvalue,
+    this.label;
   });
 
   KLineEntity.fromJson(Map<String, dynamic> json) {
