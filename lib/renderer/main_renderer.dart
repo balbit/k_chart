@@ -290,9 +290,9 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
       paintedText = "多";
     }
     
-//     TextPainter tp = TextPainter(text: TextSpan(text: paintedText, style: TextStyle(color:Colors.black)), textDirection: TextDirection.ltr);
-//     tp.layout();
-//     tp.paint(canvas, Offset(curX, yCenter));
+    TextPainter tp = TextPainter(text: TextSpan(text: paintedText, style: TextStyle(color:Colors.black, fontWeight: FontWeight.w700)), textDirection: TextDirection.ltr);
+    tp.layout();
+    tp.paint(canvas, Offset(curX-5, yCenter-5));
   }
 
   @override
