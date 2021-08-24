@@ -266,8 +266,8 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
         path, chartPaint
       );
       
-      yCenter = high + labelDist + labelH/2;
-      paintedText = "空";
+      yCenter = high + labelDist + labelH/2-5;
+      paintedText = "多";
     }
     if (curPoint.label == LabelType.Short) {
       chartPaint.color = Colors.greenAccent;
@@ -286,13 +286,13 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
         path, chartPaint
       );
       
-      yCenter = low - labelDist - labelH/2;
-      paintedText = "多";
+      yCenter = low - labelDist - labelH/2-10;
+      paintedText = "空";
     }
     
     TextPainter tp = TextPainter(text: TextSpan(text: paintedText, style: TextStyle(color:Colors.black, fontWeight: FontWeight.w700)), textDirection: TextDirection.ltr);
     tp.layout();
-    tp.paint(canvas, Offset(curX-5, yCenter-5));
+    tp.paint(canvas, Offset(curX-6.5, yCenter));
   }
 
   @override
