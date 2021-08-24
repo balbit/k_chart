@@ -250,7 +250,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
     
     if (curPoint.label == LabelType.Long) {
       chartPaint.color = Colors.redAccent;
-      late path = Path()..moveTo(curX, high + labelDist)
+      final path = Path()..moveTo(curX, high + labelDist)
         ..lineTo(curX - labelR, high + labelDist + labelH)
         ..lineTo(curX + labelR, high + labelDist + labelH)
         ..lineTo(curX, high + labelDist);
@@ -269,7 +269,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
     }
     if (curPoint.label == LabelType.Short) {
       chartPaint.color = Colors.greenAccent;
-      late path = Path()..moveTo(curX, low - labelDist)
+      final path = Path()..moveTo(curX, low - labelDist)
         ..lineTo(curX - labelR, low - labelDist - labelH)
         ..lineTo(curX + labelR, low - labelDist - labelH)
         ..lineTo(curX, low - labelDist);
