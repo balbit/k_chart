@@ -203,6 +203,9 @@ abstract class BaseChartPainter extends CustomPainter {
         mMainMinIndex = i;
       }
     }
+    final diff = mMainMaxValue - mMainLowValue + 1;
+    mMainMaxValue += diff * 0.1;
+    mMainMinValue -= diff * 0.1;
   }
 
   double _findMaxMA(List<double> a) {
