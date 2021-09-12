@@ -260,7 +260,7 @@ abstract class BaseChartPainter extends CustomPainter {
         mSecondaryMaxValue = max(mSecondaryMaxValue, item.cci!);
         mSecondaryMinValue = min(mSecondaryMinValue, item.cci!);
       }
-    } else if (secondaryState == SecondaryState.Model) {
+    } else if (secondaryState == SecondaryState.Model || secondaryState == SecondaryState.ModelDiff) {
       mSecondaryMaxValue = 50;
       mSecondaryMinValue = -50;
     } else {
