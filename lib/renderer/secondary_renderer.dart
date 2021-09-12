@@ -41,6 +41,9 @@ class SecondaryRenderer extends BaseChartRenderer<MACDEntity> {
       case SecondaryState.Model:
         drawModel(curPoint, canvas, curX, lastPoint, lastX);
         break;
+      case SecondaryState.ModelDiff:
+        drawModelDiff(curPoint, canvas, curX, lastPoint, lastX);
+        break;
       case SecondaryState.KDJ:
         drawLine(lastPoint.k, curPoint.k, canvas, lastX, curX,
             this.chartColors.kColor);
