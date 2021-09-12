@@ -37,6 +37,7 @@ abstract class BaseChartRenderer<T> {
   }
 
   double getY(double y) => (maxValue - y) * scaleY + chartRect.top;
+  double getY2(double y) => (50 - y) * chartRect.height / (100) + chartRect.top;
 
   String format(double? n) {
     if (n == null || n.isNaN) {
@@ -63,6 +64,19 @@ abstract class BaseChartRenderer<T> {
     //("lasePrice==" + lastPrice.toString() + "==curPrice==" + curPrice.toString());
     double lastY = getY(lastPrice);
     double curY = getY(curPrice);
+    //print("lastX-----==" + lastX.toString() + "==lastY==" + lastY.toString() + "==curX==" + curX.toString() + "==curY==" + curY.toString());
+    canvas.drawLine(
+        Offset(lastX, lastY), Offset(curX, curY), (chartPaint..color = color)..strokeWidth = strokeWidth);
+  }
+  
+  void drawLine2(double? lastPrice, double? curPrice, Canvas canvas,
+      double lastX, double curX, Color color, {double strokeWidth = 1.0}) {
+    if (lastPrice == null || curPrice == null) {
+      return;
+    }
+    //("lasePrice==" + lastPrice.toString() + "==curPrice==" + curPrice.toString());
+    double lastY = getY2(lastPrice);
+    double curY = getY2(curPrice);
     //print("lastX-----==" + lastX.toString() + "==lastY==" + lastY.toString() + "==curX==" + curX.toString() + "==curY==" + curY.toString());
     canvas.drawLine(
         Offset(lastX, lastY), Offset(curX, curY), (chartPaint..color = color)..strokeWidth = strokeWidth);
