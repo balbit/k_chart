@@ -20,4 +20,6 @@ mixin CandleEntity {
   double? dn;
 
   double? BOLLMA;
+  
+  double? model;
 }
