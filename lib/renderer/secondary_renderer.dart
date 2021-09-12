@@ -108,7 +108,7 @@ class SecondaryRenderer extends BaseChartRenderer<MACDEntity> {
       MACDEntity lastPoint, double lastX) {
     final prediction = (curPoint.predictionDiff ?? 0);
     double macdY = getY(prediction);
-    double r = mMACDWidth;
+    double r = mMACDWidth*0.8;
     double zeroy = getY(0);
     if (prediction > 0) {
       canvas.drawRect(Rect.fromLTRB(curX - r, macdY, curX + r, zeroy),
