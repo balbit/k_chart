@@ -5,7 +5,7 @@ import 'package:k_chart/chart_translations.dart';
 import 'package:k_chart/extension/map_ext.dart';
 import 'package:k_chart/flutter_k_chart.dart';
 
-enum MainState { MA, BOLL, NONE }
+enum MainState { MA, BOLL, Model, NONE }
 enum SecondaryState { MACD, KDJ, RSI, WR, Model, ModelDiff, CCI, NONE }
 enum LabelType { Short, Long } 
 
