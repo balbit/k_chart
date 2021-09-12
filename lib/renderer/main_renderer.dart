@@ -119,6 +119,8 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
       drawMaLine(lastPoint, curPoint, canvas, lastX, curX);
     } else if (state == MainState.BOLL) {
       drawBollLine(lastPoint, curPoint, canvas, lastX, curX);
+    } else if (state == MainState.Model) {
+      drawModelLine(lastPoint, curPoint, canvas, lastX, curX);
     }
   }
 
