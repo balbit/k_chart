@@ -6,7 +6,7 @@ import 'package:k_chart/extension/map_ext.dart';
 import 'package:k_chart/flutter_k_chart.dart';
 
 enum MainState { MA, BOLL, NONE }
-enum SecondaryState { MACD, KDJ, RSI, WR, Model, CCI, NONE }
+enum SecondaryState { MACD, KDJ, RSI, WR, Model, ModelDiff, CCI, NONE }
 enum LabelType { Short, Long } 
 
 class TimeFormat {
