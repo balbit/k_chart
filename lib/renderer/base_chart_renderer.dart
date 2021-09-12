@@ -78,7 +78,7 @@ abstract class BaseChartRenderer<T> {
     double lastY = getY2(lastPrice);
     double curY = getY2(curPrice);
     print("lastX-----==" + lastX.toString() + "==lastY==" + lastY.toString() + "==curX==" + curX.toString() + "==curY==" + curY.toString());
-    assert(false);
+//     assert(false);
     canvas.drawLine(
         Offset(lastX, lastY), Offset(curX, curY), (chartPaint..color = color)..strokeWidth = strokeWidth);
   }
