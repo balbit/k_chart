@@ -208,7 +208,7 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
       Canvas canvas, double lastX, double curX) {
     if (lastPoint.model != 0) {
       drawLine(lastPoint.model, curPoint.model, canvas, lastX, curX,
-          Colors.yellowAccent, strokeWidth = 2.0);
+          Colors.yellowAccent, strokeWidth : 2.0);
     }
   }
 
