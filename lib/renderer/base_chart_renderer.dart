@@ -56,7 +56,7 @@ abstract class BaseChartRenderer<T> {
       Canvas canvas);
 
   void drawLine(double? lastPrice, double? curPrice, Canvas canvas,
-      double lastX, double curX, Color color) {
+      double lastX, double curX, Color color, {double strokeWidth = 1.0}) {
     if (lastPrice == null || curPrice == null) {
       return;
     }
@@ -65,7 +65,7 @@ abstract class BaseChartRenderer<T> {
     double curY = getY(curPrice);
     //print("lastX-----==" + lastX.toString() + "==lastY==" + lastY.toString() + "==curX==" + curX.toString() + "==curY==" + curY.toString());
     canvas.drawLine(
-        Offset(lastX, lastY), Offset(curX, curY), chartPaint..color = color);
+        Offset(lastX, lastY), Offset(curX, curY), (chartPaint..color = color)..strokeWidth = strokeWidth);
   }
 
   TextStyle getTextStyle(Color color) {
