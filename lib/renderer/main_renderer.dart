@@ -201,6 +201,14 @@ class MainRenderer extends BaseChartRenderer<CandleEntity> {
           this.chartColors.ma30Color);
     }
   }
+  
+  void drawModelLine(CandleEntity lastPoint, CandleEntity curPoint,
+      Canvas canvas, double lastX, double curX) {
+    if (lastPoint.model != 0) {
+      drawLine(lastPoint.model, curPoint.model, canvas, lastX, curX,
+          this.chartColors.ma5Color);
+    }
+  }
 
   void drawCandle(CandleEntity curPoint, Canvas canvas, double curX) {
     var high = getY(curPoint.high);
