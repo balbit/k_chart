@@ -103,6 +103,21 @@ class SecondaryRenderer extends BaseChartRenderer<MACDEntity> {
           chartPaint..color = Colors.greenAccent);
     }
   }
+  
+  void drawModelDiff(MACDEntity curPoint, Canvas canvas, double curX,
+      MACDEntity lastPoint, double lastX) {
+    final prediction = (curPoint.predictionDiff ?? 0);
+    double macdY = getY(prediction);
+    double r = mMACDWidth;
+    double zeroy = getY(0);
+    if (prediction > 0) {
+      canvas.drawRect(Rect.fromLTRB(curX - r, macdY, curX + r, zeroy),
+          chartPaint..color = Colors.redAccent);
+    } else {
+      canvas.drawRect(Rect.fromLTRB(curX - r, zeroy, curX + r, macdY),
+          chartPaint..color = Colors.greenAccent);
+    }
+  }
 
   @override
   void drawText(Canvas canvas, MACDEntity data, double x) {
