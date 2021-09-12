@@ -23,7 +23,7 @@ class DataUtil {
     for (int i = 0; i < dataList.length; i++) {
       KLineEntity entity = dataList[i];
       entity.prediction = entity.modelvalue==null?0:entity.modelvalue!*100-50;
-      entity.predictionDiff = entity.prediction - (i==0?0:dataList[i-1].prediction);
+      entity.predictionDiff = entity.prediction! - ((i==0)? 0.0 :dataList[i-1].prediction!);
     }
   }
   
